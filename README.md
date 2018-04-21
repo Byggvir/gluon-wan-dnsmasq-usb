@@ -7,3 +7,5 @@ This Package adds to interfaces umts and tether to the files
 * /lib/gluon/wan-dnsmasq/update.lua
 
 This package is only usefull on devices with USB ports and must replace gluon-wan-dnsmasq.
+
+Due to dependencies in other packages this package must replace gluon-wan-dnsmasq. This is a bit boring because devices without usb will get the same code. This is a harmless caveat.
