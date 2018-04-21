@@ -1,6 +1,6 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=gluon-wan-dnsmasq-usb
+PKG_NAME:=gluon-wan-dnsmasq
 PKG_VERSION:=1
 
 PKG_BUILD_DIR := $(BUILD_DIR)/$(PKG_NAME)
@@ -11,12 +11,12 @@ include ../gluon.mk
 define Package/gluon-wan-dnsmasq
   SECTION:=gluon
   CATEGORY:=Gluon
-  TITLE:=Support for a secondary DNS server using the WAN interface via USB (UMTS / Tethering)
+  TITLE:=Support for a secondary DNS server using  WAN interface eth0 or usb0 (UMTS / Tethering)
   DEPENDS:=+gluon-core +libubus-lua +dnsmasq +libpacketmark
 endef
 
-define Package/gluon-wan-dnsmasq-usb/description
-	Gluon community wifi mesh firmware framework: Support for a secondary DNS server using the WAN interface via USB (UMTS / Tethering)
+define Package/gluon-wan-dnsmasq/description
+	Gluon community wifi mesh firmware framework: Support for a secondary DNS server using a WAN interface eth0 or usb0 (UMTS / Tethering)
 endef
 
 define Build/Prepare
@@ -30,9 +30,9 @@ define Build/Compile
 	$(call GluonSrcDiet,./luasrc,$(PKG_BUILD_DIR)/luadest/)
 endef
 
-define Package/gluon-wan-dnsmasq-usb/install
+define Package/gluon-wan-dnsmasq/install
 	$(CP) ./files/* $(1)/
 	$(CP) $(PKG_BUILD_DIR)/luadest/* $(1)/
 endef
 
-$(eval $(call BuildPackage,gluon-wan-dnsmasq-usb))
+$(eval $(call BuildPackage,gluon-wan-dnsmasq))
